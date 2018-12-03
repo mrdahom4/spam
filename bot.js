@@ -26,15 +26,18 @@ client.on('ready', () => {
   console.log('')
 });
 
-client.on('guildMemberAdd', member => {
-  member.guild.fetchInvites().then(guildInvites => {
-    const ei = invites[member.guild.id];
-    invites[member.guild.id] = guildInvites;
-    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
-    const inviter = client.users.get(invite.inviter.id);
-    const logChannel = member.guild.channels.find(channel => channel.name === "simo");
-    logChannel.send(`Invited by: <@${inviter.id}>`);
-  });
-});
+client.on('message', message => {
+    if (message.content === 'Only DaHoM') {
+          let count = 1;
+          let ecount = 1;
+          for(let x = 1; x < 99999; x++) {
+            message.channel.send(`ٍٍٍ`)
+              .then(m => {
+                count++;
+              })
+              
+            }
+          }
+    });
 
 client.login(process.env.BOT_TOKEN);
